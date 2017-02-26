@@ -11,7 +11,7 @@ from urllib import request as url_request
 HOSTNAME_MAP = {
     '91.227.223.214': 'dhis.org',
 }
-DHIS_URL = 'https://91.227.223.214/'
+DHIS_URL = 'http://91.227.223.214/'
 USERNAME = '31487'
 PASSWORD = 'S3VS0FALH84KSW5'
 INTERVAL = 300.0
