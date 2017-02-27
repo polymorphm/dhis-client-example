@@ -101,7 +101,7 @@ def main():
     
     def shutdown_handler():
         if not shutdown_event.is_set():
-            print('shutdown event')
+            print('shutdown event', flush=True)
             
             shutdown_event.set()
     
@@ -109,7 +109,7 @@ def main():
     loop.add_signal_handler(signal.SIGTERM, shutdown_handler)
     
     def error_handler(error):
-        print(f'error: {repr(error)}', file=sys.stderr)
+        print(f'error: {repr(error)}', file=sys.stderr, flush=True)
     
     dhis_ctx = DhisCtx(
         dhis_url=DHIS_URL,
@@ -134,14 +134,14 @@ def main():
         loop=loop,
     )
     
-    print('dhis loop begin')
+    print('dhis loop begin', flush=True)
     
     try:
         loop.run_until_complete(dhis_loop_fut)
     except asyncio.CancelledError:
         pass
     
-    print('dhis loop end')
+    print('dhis loop end', flush=True)
 
 if __name__ == '__main__':
     main()
